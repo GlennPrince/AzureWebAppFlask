@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container container-md px-4 py-5">
+    <h2 class="pb-2 border-bottom">Edit Task</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="name" class="form-label">Task Name</label>
+            <input type="text" class="form-control" name="name" id="name" value="{{ data.name }}">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea  class="form-control" name="description" id="description" rows="5">{{ data.description }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="due" class="form-label">Due On</label>
+            <input type="text" class="form-control" name="due" id="due"  value="{{ data.due }}">
+        </div>
+        <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" name="completed" id="completed" value="{{ data.completed }}">
+            <label for="completed" class="form-check-label">Completed</label>
+        </div>
+        <div class="container"><p></p></div>
+        <div class="mb-3">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="created" class="form-label">Created</label>
+                    <input type="text" class="form-control" name="created" id="created"  value="{{ data.created }}" disabled>
+                </div>
+                <div class="col-md-4">
+                    <label for="modified" class="form-label">Modified</label>
+                    <input type="text" class="form-control" name="modified" id="modified" value="{{ data.modified }}" disabled>
+                </div>
+            </div>  
+        </div>
+        <input class="btn btn-primary" type="submit" value="Update Task" />
+        <a href="/" class="btn btn-secondary" type="button">Home</a>
+    </form>
+</div>
+{% endblock %}
